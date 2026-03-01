@@ -34,6 +34,7 @@ draft: false
 先放一张整体架构图，后面的内容基本上都是围绕这张图展开的：
 
 ![agent-architecture-v2cn.webp](https://pic.lapis.cafe/2026/03/33845590d1c1562ea144ff4f9841ca63.webp)
+
 ## 一切的起点：三种场景，一个内核
 
 YOLO 里用到 LLM 的地方不止 Agent Chat 一个。Smart Space 和 Quick Ask 需要 LLM，补全和未来的建议&关联文档也需要 LLM。一个很自然的问题是：这么多场景需要各写一套调用逻辑吗？
