@@ -1,5 +1,6 @@
-import { MapPin, Github, MessageCircle, Music, Heart } from "lucide-react"
+import { MapPin, Heart } from "lucide-react"
 import { profile } from "@/data/profile"
+import { ProfileContactLink } from "@/components/profile-contact-link"
 
 export default function AboutPage() {
   return (
@@ -41,18 +42,13 @@ export default function AboutPage() {
                 {/* Social Links */}
                 <div className="flex items-center gap-3">
                   {profile.links.map((link) => {
-                    const Icon = link.type === "qq" ? MessageCircle : link.type === "music" ? Music : Github
                     return (
-                      <a
+                      <ProfileContactLink
                         key={link.name}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-                        aria-label={link.name}
-                      >
-                        <Icon className="w-5 h-5 text-muted-foreground" />
-                      </a>
+                        link={link}
+                        className="p-2.5 rounded-lg bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                        iconClassName="w-5 h-5"
+                      />
                     )
                   })}
                 </div>

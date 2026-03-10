@@ -1,8 +1,10 @@
-import { Github, MessageCircle, Music, Rss } from "lucide-react"
-import { profile, type ProfileLinkType } from "@/data/profile"
+import type { ComponentType, SVGProps } from "react"
+import { Github, Music, Rss } from "lucide-react"
+import { profile, type ExternalProfileLink, type ExternalProfileLinkType } from "@/data/profile"
+import { QqIcon } from "@/components/icons/qq-icon"
 
-const iconMap: Record<ProfileLinkType, typeof Github> = {
-  qq: MessageCircle,
+const iconMap: Record<ExternalProfileLinkType, ComponentType<SVGProps<SVGSVGElement>>> = {
+  qq: QqIcon,
   music: Music,
   github: Github,
 }
@@ -63,7 +65,7 @@ export function Footer() {
             <div>
               <h4 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wide">联系</h4>
               <div className="flex items-center gap-4">
-                {profile.links.map((link) => {
+                {profile.links.filter((link): link is ExternalProfileLink => link.type !== "wechat").map((link) => {
                   const Icon = iconMap[link.type]
                   return (
                     <a

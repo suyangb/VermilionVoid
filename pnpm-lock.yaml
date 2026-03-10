@@ -113,6 +113,9 @@ importers:
       '@swup/astro':
         specifier: ^1.7.0
         version: 1.7.0(@types/babel__core@7.20.5)
+      '@tabler/icons-react':
+        specifier: ^3.40.0
+        version: 3.40.0(react@19.2.0)
       astro-expressive-code:
         specifier: ^0.41.5
         version: 0.41.5(astro@5.16.5(@types/node@22.19.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2))
@@ -2276,6 +2279,14 @@ packages:
     resolution: {integrity: sha512-nwAzx+GYySIYs6uSCFYGNdpLWv2z/mEryRD1gvmIqsaSP2N7sVd4mKAboraJAzIzbasRhTsTQzyN1LfLeti3AA==}
     peerDependencies:
       swup: ^4.0.0
+
+  '@tabler/icons-react@3.40.0':
+    resolution: {integrity: sha512-oO5+6QCnna4a//mYubx4euZfECtzQZFDGsDMIdzZUhbdyBCT+3bRVFBPueGIcemWld4Vb/0UQ39C/cmGfGylAg==}
+    peerDependencies:
+      react: '>= 16'
+
+  '@tabler/icons@3.40.0':
+    resolution: {integrity: sha512-V/Q4VgNPKubRTiLdmWjV/zscYcj5IIk+euicUtaVVqF6luSC9rDngYWgST5/yh3Mrg/mYUwRv1YVTk71Jp0twQ==}
 
   '@tailwindcss/node@4.1.17':
     resolution: {integrity: sha512-csIkHIgLb3JisEFQ0vxr2Y57GUNYh447C8xzwj89U/8fdW8LhProdxvnVH6U8M2Y73QKiTIH+LWbK3V2BBZsAg==}
@@ -7850,6 +7861,13 @@ snapshots:
     dependencies:
       '@swup/plugin': 4.0.0
       swup: 4.8.2
+
+  '@tabler/icons-react@3.40.0(react@19.2.0)':
+    dependencies:
+      '@tabler/icons': 3.40.0
+      react: 19.2.0
+
+  '@tabler/icons@3.40.0': {}
 
   '@tailwindcss/node@4.1.17':
     dependencies:

@@ -2,8 +2,9 @@
 
 import { useState, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
-import { Calendar, Github, MessageCircle, Music } from "lucide-react"
+import { Calendar } from "lucide-react"
 import { profile } from "@/data/profile"
+import { ProfileContactLink } from "@/components/profile-contact-link"
 
 interface SidebarProps {
   categories: { id: string; name: string; count: number }[]
@@ -56,18 +57,13 @@ export function Sidebar({
         {/* Social Links */}
         <div className="flex items-center justify-center gap-3 mb-4">
           {profile.links.map((link) => {
-            const Icon = link.type === "qq" ? MessageCircle : link.type === "music" ? Music : Github
             return (
-              <a
+              <ProfileContactLink
                 key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
+                link={link}
                 className="p-2 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label={link.name}
-              >
-                <Icon className="w-4 h-4" />
-              </a>
+                iconClassName="w-4 h-4"
+              />
             )
           })}
         </div>
@@ -91,6 +87,7 @@ export function Sidebar({
           {visibleCategories.map((category) => (
             <button
               key={category.id}
+              type="button"
               onClick={() => onCategoryChange(category.id)}
               className={cn(
                 "w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors",
@@ -131,10 +128,11 @@ export function Sidebar({
         </div>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => onTagChange(activeTag === tag ? null : tag)}
-              className={cn(
+              <button
+                key={tag}
+                type="button"
+                onClick={() => onTagChange(activeTag === tag ? null : tag)}
+                className={cn(
                 "px-3 py-1.5 rounded-lg text-xs transition-colors",
                 activeTag === tag
                   ? "bg-primary text-primary-foreground"
