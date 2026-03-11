@@ -141,6 +141,12 @@
         "imgurl": "https://2.gravatar.com/avatar/047f627ac8a6ac2f6df2d730dbaf585011c15dab8e93b9bea3e5609167548eeb",
         "desc": "一个“页面仔”的成长之路",
         "siteurl": "https://www.cssforest.org/"
+      },
+      {
+        "title": "Cynosura",
+        "imgurl": "https://cynosura.one/img/avatar.webp",
+        "desc": "Trying to light up the dark.",
+        "siteurl": "https://cynosura.one"
       }
     ]
   },
