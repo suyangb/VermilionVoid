@@ -72,7 +72,7 @@ export function Sidebar({
         <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-4 border-t border-border/50">
           <span className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
-            持续更新中
+            正在空降：超级地球
           </span>
         </div>
       </div>
