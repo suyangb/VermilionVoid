@@ -2,7 +2,6 @@ import os
 import json
 import requests
 import hashlib
-from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 from PIL import Image
@@ -171,10 +170,7 @@ def process_records(records, token):
 def save_to_json(data):
     """将数据保存为 JSON 文件"""
     output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public', 'data', 'books.json')
-    
-    # 添加更新时间
-    data['last_updated'] = datetime.now().isoformat()
-    
+
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     
