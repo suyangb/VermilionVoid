@@ -324,6 +324,7 @@ const booksForClient = allBooks.map((book) => {
   </div>
 
   <script
+    is:inline
     type="application/json"
     id="books-data"
     set:html={JSON.stringify(booksForClient).replace(/</g, "\\u003c")}

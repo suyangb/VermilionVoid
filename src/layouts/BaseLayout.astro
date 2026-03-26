@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css"
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 
 interface Props {
   title?: string
@@ -181,7 +181,7 @@ const resolvedTwitterDescription = twitterDescription || description
         }
       })();
     </script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-background text-foreground">
     <slot />

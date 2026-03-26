@@ -137,43 +137,6 @@ function ThoughtCard({ thought, index }: { thought: ThoughtMeta; index: number }
   )
 }
 
-function ThoughtSidebar({
-  tags,
-  activeTag,
-  onTagChange,
-}: {
-  tags: string[]
-  activeTag: string | null
-  onTagChange: (tag: string | null) => void
-}) {
-  return (
-    <aside className="w-full lg:w-64 shrink-0">
-      <div className="bg-card border border-border/50 rounded-xl p-5">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-1 h-4 bg-primary rounded-full" />
-          <h4 className="font-medium text-foreground">标签</h4>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => onTagChange(activeTag === tag ? null : tag)}
-              className={cn(
-                "px-3 py-1.5 rounded-lg text-xs transition-colors",
-                activeTag === tag
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </div>
-    </aside>
-  )
-}
-
 export function ThoughtList({
   thoughts,
   tags: sidebarTags,
