@@ -314,6 +314,11 @@ html[data-prefilter="1"] .article-list-root {
   font-family: var(--font-math-text);
 }
 
+.prose .katex .mbin {
+  margin-left: -0.04em;
+  margin-right: -0.08em;
+}
+
 .prose .katex-display::-webkit-scrollbar {
   height: 0.35rem;
 }
