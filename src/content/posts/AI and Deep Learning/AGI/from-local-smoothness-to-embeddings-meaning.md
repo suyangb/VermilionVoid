@@ -1,7 +1,7 @@
 ---
 title: 从世界的局部平滑性谈 Embedding 的意义
 published: 2026-03-27
-description: "Embedding 的价值，在于把世界里局部连续、相近可迁移的结构压缩进可计算的表示空间。"
+description: "Embedding 的价值，在于表明我们所栖居的这个世界在最根本的层面上，是有结构的、可度量的、几何的"
 image: ""
 tags: ["模型考古学"]
 category: 深度学习
