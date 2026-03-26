@@ -173,6 +173,7 @@ def save_to_json(data):
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+        f.write('\n')
     
     print(f"Data saved to {output_path}")
 
