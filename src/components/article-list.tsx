@@ -315,7 +315,7 @@ export function ArticleList({
             className="max-w-xl lg:max-w-sm"
             style={{ animation: "fade-in-up 220ms ease-out" }}
           >
-            <span className="mb-2 block text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+            <span className="mb-2 block text-xs font-medium tracking-[0.2em] text-primary uppercase">
               {headerMeta.label}
             </span>
             {activeCategory === "all" && !activeTag ? (
