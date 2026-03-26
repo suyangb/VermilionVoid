@@ -247,6 +247,17 @@ html[data-prefilter="1"] .article-list-root {
   margin-top: 0.75rem;
 }
 
+.prose .katex-display {
+  display: block;
+  text-align: center;
+  margin: 1.5rem auto;
+}
+
+.prose .katex-display > .katex {
+  display: block;
+  text-align: center;
+}
+
 /* ============================================
    GitHub Card - Modern Design
    ============================================ */
