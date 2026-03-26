@@ -90,7 +90,6 @@ const buildPageRange = (currentPage: number, totalPages: number) => {
 export function ArticleList({
   articles,
   title = "近期文章",
-  subtitle = "Latest Posts",
   showViewAll = true,
   pagination,
   sidebarCategories,
@@ -99,7 +98,6 @@ export function ArticleList({
 }: {
   articles: ArticleMeta[]
   title?: string
-  subtitle?: string
   showViewAll?: boolean
   pagination?: PaginationMeta
   sidebarCategories?: SidebarCategory[]
@@ -203,6 +201,33 @@ export function ArticleList({
     })
   }, [articles, activeCategory, activeTag])
 
+  const headerMeta = useMemo(() => {
+    if (activeTag) {
+      return {
+        label: "当前筛选",
+        eyebrow: "标签",
+        heading: activeTag,
+      }
+    }
+
+    if (activeCategory !== "all") {
+      const currentCategory = categories.find((category) => category.id === activeCategory)
+      return {
+        label: "当前筛选",
+        eyebrow: "分类",
+        heading: currentCategory?.name ?? activeCategory,
+      }
+    }
+
+    return {
+      label: "文章归档",
+      eyebrow: "归档",
+      heading: title,
+    }
+  }, [activeTag, activeCategory, categories, title])
+
+  const headerAnimationKey = activeTag ? `tag:${activeTag}` : `category:${activeCategory}`
+
   const isFiltering = activeCategory !== "all" || Boolean(activeTag)
   const pageSize = pagination?.pageSize ?? Math.max(1, articles.length)
   const totalPages = pagination ? Math.max(1, Math.ceil(filteredArticles.length / pageSize)) : 1
@@ -285,8 +310,26 @@ export function ArticleList({
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-10 onload-animation" style={{ animationDelay: "50ms" }}>
-          <span className="text-primary text-sm font-medium tracking-wide uppercase mb-2 block">{subtitle}</span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-medium text-foreground">{title}</h2>
+          <div
+            key={headerAnimationKey}
+            className="max-w-xl lg:max-w-sm"
+            style={{ animation: "fade-in-up 220ms ease-out" }}
+          >
+            <span className="mb-2 block text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+              {headerMeta.label}
+            </span>
+            {activeCategory === "all" && !activeTag ? (
+              <h2 className="font-serif text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl lg:text-[2.4rem]">
+                {headerMeta.heading}
+              </h2>
+            ) : (
+              <h2 className="flex flex-wrap items-end gap-x-2 gap-y-1 font-serif text-2xl font-semibold leading-tight tracking-tight sm:text-3xl lg:text-[2.4rem]">
+                <span className="text-foreground/68">{headerMeta.eyebrow}</span>
+                <span className="text-foreground/35">/</span>
+                <span className="text-primary">{headerMeta.heading}</span>
+              </h2>
+            )}
+          </div>
         </div>
 
         {/* Main layout: Sidebar + Articles */}
