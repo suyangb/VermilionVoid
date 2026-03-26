@@ -50,6 +50,11 @@
   /* Code block colors - light mode */
   --codeblock-bg: oklch(0.97 0 0);
   --codeblock-topbar-bg: oklch(0.94 0 0);
+  --math-color: oklch(0.24 0.01 25);
+  --math-display-color: oklch(0.28 0.01 25);
+  --math-display-shadow: 0 1px 0 oklch(1 0 0 / 0.6);
+  --font-math: "STIX Two Math", "Cambria Math", "Latin Modern Math", "STIX Two Text", "Times New Roman", "Georgia", serif;
+  --font-math-text: "STIX Two Text", "Cambria", "Times New Roman", "Georgia", serif;
 }
 
 .dark {
@@ -93,6 +98,9 @@
   /* Code block colors - dark mode */
   --codeblock-bg: oklch(0.20 0.015 250);
   --codeblock-topbar-bg: oklch(0.24 0.015 250);
+  --math-color: oklch(0.9 0.01 250);
+  --math-display-color: oklch(0.94 0.01 250);
+  --math-display-shadow: 0 1px 0 oklch(0.08 0 0 / 0.18);
 }
 
 @theme inline {
@@ -250,12 +258,82 @@ html[data-prefilter="1"] .article-list-root {
 .prose .katex-display {
   display: block;
   text-align: center;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
+  padding: 0.4rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  color: var(--math-display-color);
+  scrollbar-width: thin;
 }
 
 .prose .katex-display > .katex {
   display: block;
   text-align: center;
+  min-width: max-content;
+  padding: 0 0.1rem;
+  font-size: 1.2em;
+  text-rendering: geometricPrecision;
+  text-shadow: var(--math-display-shadow);
+}
+
+.prose .katex {
+  color: var(--math-color);
+  font-size: 1.06em;
+  line-height: 1.35;
+  text-rendering: geometricPrecision;
+}
+
+.prose p .katex,
+.prose li .katex,
+.prose blockquote .katex,
+.prose td .katex {
+  padding: 0;
+}
+
+.prose .katex .mathnormal,
+.prose .katex .mathit,
+.prose .katex .mathrm,
+.prose .katex .textrm {
+  font-family: var(--font-math);
+}
+
+.prose .katex .mathnormal {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.prose .katex .mathit,
+.prose .katex .mathrm,
+.prose .katex .textrm {
+  font-family: var(--font-math-text);
+}
+
+.prose .katex .mathbf,
+.prose .katex .boldsymbol {
+  font-family: var(--font-math-text);
+}
+
+.prose .katex-display::-webkit-scrollbar {
+  height: 0.35rem;
+}
+
+.prose .katex-display::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground), transparent 65%);
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .prose .katex-display {
+    margin: 1.6rem -0.25rem;
+    padding: 0.35rem 0.25rem;
+    text-align: left;
+  }
+
+  .prose .katex-display > .katex {
+    text-align: left;
+    font-size: 1.1em;
+  }
 }
 
 /* ============================================
