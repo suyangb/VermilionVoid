@@ -8,7 +8,7 @@ import { profile } from "@/data/profile"
 
 const navItems: { name: string; href: string; external?: boolean }[] = [
   { name: "首页", href: "/#home-main" },
-  { name: "时间线", href: "/timeline/" },
+  { name: "归档", href: "/timeline/" },
   { name: "偶得", href: "/thoughts/" },
   { name: "书架", href: "/bookshelf/" },
   { name: "友链", href: "/friends/" },
