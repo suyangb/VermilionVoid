@@ -23,7 +23,7 @@ export const profile: {
   avatar: string
   links: ProfileLink[]
 } = {
-  name: "时歌",
+  name: "王苏洋",
   bio: "理解以真实为本，但真实本身并不会自动呈现",
   avatar: "/avatar.webp",
   links: [
